@@ -1,18 +1,32 @@
 <%= link_to "back", clubs_path %>
 
 <h1><%= @club.name %></h1>
-<p><%= @club.background_image %></p>
-<p><%= @proprio.first_name %></p>
-<p><%= @proprio.last_name %></p>
+<p>
+  <%= @club.background_image %>
+  <% if @proprio %>
+    <%= @proprio.first_name %>
+    <%= @proprio.last_name %>
+  <% end %>
+</p>
 
 <div class="clients-container">
-<h2>Clients</h2>
+
+  <h2>Clients</h2>
+
   <% @club.clients.each do |client| %>
+    <%= link_to club_client_path(client) do  %>
       <div class="client-card">
         <p><%= client.first_name.capitalize %></p>
         <p><%= client.last_name.capitalize %></p>
       </div>
     <% end %>
+  <% end %>
+</div>
+
+<div>
+  <h2>New Client</h2>
+
+  <%= link_to "Ajouter un client", new_club_client_path(@club), class:"btn" %>
 </div>
 
 <%= link_to "Supprimer l'association",

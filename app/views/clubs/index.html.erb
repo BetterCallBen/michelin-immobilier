@@ -1,5 +1,5 @@
 <% @clubs.each do |club| %>
-  <%= link_to club_path(club) do  %>
+  <%= link_to club_path(club), class: "btn" do  %>
     <div>
       <%= club.name %>
     </div>

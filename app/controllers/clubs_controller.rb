@@ -1,6 +1,5 @@
 class ClubsController < ApplicationController
-  skip_before_action :authenticate_user!
-  before_action :set_club, only: %i[show edit update destroy]
+  before_action :set_club, only: %i[show destroy]
 
   def index
     @clubs = Club.all

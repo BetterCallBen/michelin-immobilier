@@ -1,5 +1,8 @@
 class ClientsController < ApplicationController
-  skip_before_action :authenticate_user!
+  def show
+    @club = Club.find(params[:id])
+    @client = Client.find(params[:club_id])
+  end
 
   def new
     @club = Club.find(params[:club_id])
@@ -15,8 +18,10 @@ class ClientsController < ApplicationController
   end
 
   def destroy
-    @client = Client.find(params[:id])
+    @club = Club.find(params[:id])
+    @client = Client.find(params[:club_id])
     @client.destroy
+    redirect_to club_path(@club)
   end
 
   def client_params

@@ -5,11 +5,11 @@ club1 = Club.create!(
   name: "Club1",
   background_image: "url1"
 )
-Club.create!(
+club2 = Club.create!(
   name: "Club2",
   background_image: "url2"
 )
-Club.create!(
+club3 = Club.create!(
   name: "Club3",
   background_image: "url3"
 )
@@ -22,6 +22,8 @@ Client.create!(
   club: club1
 )
 User.create!(first_name: 'Nicolas', last_name: "Mercier", password: "secret", email: 'benjamin@gmail.com', club: club1)
+User.create!(first_name: 'Jacob', last_name: "Thev", password: "secret", email: 'jacob@gmail.com', club: club2)
+User.create!(first_name: 'charlotte', last_name: "Moula", password: "secret", email: 'charlotte@gmail.com', club: club3)
 
 puts "#{Club.count} clubs were created"
 puts "#{User.count} users were created"
