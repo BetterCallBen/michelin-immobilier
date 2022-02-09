@@ -1,3 +1,3 @@
 class Client < ApplicationRecord
-  belongs_to :association
+  belongs_to :club
 end

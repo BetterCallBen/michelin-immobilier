@@ -1,0 +1,4 @@
+class Club < ApplicationRecord
+  has_many :clients, dependent: :destroy
+  has_many :users
+end

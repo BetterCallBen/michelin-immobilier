@@ -1,0 +1,9 @@
+<% @clubs.each do |club| %>
+  <%= link_to club_path(club) do  %>
+    <div>
+      <%= club.name %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to "ajouter une association", new_club_path %>

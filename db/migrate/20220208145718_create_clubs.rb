@@ -1,6 +1,6 @@
-class CreateAssociations < ActiveRecord::Migration[6.0]
+class CreateClubs < ActiveRecord::Migration[6.0]
   def change
-    create_table :associations do |t|
+    create_table :clubs do |t|
       t.string :name
       t.text :background_image
 

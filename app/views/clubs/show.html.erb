@@ -1,0 +1,22 @@
+<%= link_to "back", clubs_path %>
+
+<h1><%= @club.name %></h1>
+<p><%= @club.background_image %></p>
+<p><%= @proprio.first_name %></p>
+<p><%= @proprio.last_name %></p>
+
+<div class="clients-container">
+<h2>Clients</h2>
+  <% @club.clients.each do |client| %>
+      <div class="client-card">
+        <p><%= client.first_name.capitalize %></p>
+        <p><%= client.last_name.capitalize %></p>
+      </div>
+    <% end %>
+</div>
+
+<%= link_to "Supprimer l'association",
+            club_path(@club),
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+            class:"btn btn-remove" %>
