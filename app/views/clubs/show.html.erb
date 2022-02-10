@@ -1,13 +1,16 @@
 <%= link_to "back", clubs_path %>
 
 <h1><%= @club.name %></h1>
-<p>
-  <%= @club.background_image %>
-  <% if @proprio %>
-    <%= @proprio.first_name %>
-    <%= @proprio.last_name %>
+
+<% if @proprios %>
+  <% @proprios.each do |proprio| %>
+    <p>
+      <%= proprio.first_name %>
+      <%= proprio.last_name %>
+    </p>
   <% end %>
-</p>
+<% end %>
+
 
 <div class="clients-container">
 

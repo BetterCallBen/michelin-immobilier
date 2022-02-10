@@ -1,12 +1,14 @@
 class ClubsController < ApplicationController
   before_action :set_club, only: %i[show destroy]
+  before_action :authenticate_user!
 
   def index
     @clubs = Club.all
+    @my_club = current_user.club
   end
 
   def show
-    @proprio = @club.users.first
+    @proprios = @club.users
   end
 
   def new
@@ -30,7 +32,7 @@ class ClubsController < ApplicationController
   private
 
   def club_params
-    params.require(:club).permit(:name, :background_image)
+    params.require(:club).permit(:name, :bg_image)
   end
 
   def set_club

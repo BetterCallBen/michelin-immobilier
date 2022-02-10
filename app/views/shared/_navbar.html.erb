@@ -4,4 +4,7 @@
   <% else %>
     <%= link_to "Login", new_user_session_path, class: "btn" %>
   <% end %>
+  <% if user_signed_in? && current_user.admin %>
+    <p>admin</p>
+  <% end %>
 </div>
