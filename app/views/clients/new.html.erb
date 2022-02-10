@@ -1,13 +1,18 @@
-<%= link_to "back", club_path(@club) %>
 
-<%= simple_form_for [ @club, @client ] do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :email %>
-  <%= f.input :phone_number %>
-  <%= f.input :address %>
-  <%= f.input :free_text %>
-  <%= f.submit "Confirmer", class:"btn"%>
-<% end %>
 
-<%= @club.background_image %>
+
+<div class="background-image-asso" style="background-image: url('<%= cl_image_path @club.bg_image.key %>')">
+  <div class="form">
+    <%= simple_form_for [ @club, @client ] do |f| %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :email %>
+      <%= f.input :phone_number %>
+      <%= f.input :address %>
+      <%= f.input :free_text %>
+      <%= link_to "back", club_path(@club) %>
+
+      <%= f.submit "Confirmer", class:"btn"%>
+    <% end %>
+  </div>
+</div>

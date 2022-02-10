@@ -1,1 +1,3 @@
-<%= link_to "clubs", clubs_path %>
+<% if user_sign_in? %>
+  <%= link_to "clubs", clubs_path %>
+<% end %>
