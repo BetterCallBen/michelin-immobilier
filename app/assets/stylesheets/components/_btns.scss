@@ -1,3 +1,55 @@
-.btn {
+a {
   text-decoration: none;
+
+}
+
+.btn-add {
+  color: rgb(43, 43, 43);
+  &:hover {
+    color: rgb(43, 43, 43);
+  }
+}
+.btn-show {
+  color: rgb(21, 88, 165);
+  border: 1px solid rgb(21, 88, 165);
+  border-radius: 2px;
+  padding: 2px 4px;
+  transition: 0.3s;
+
+  &:hover {
+    color: rgb(21, 88, 165);
+    background-color: rgba(63, 162, 255, 0.308);
+  }
+
+}
+.btn-edit {
+  color: rgb(255, 160, 37);
+  border: 1px solid rgb(255, 160, 37);
+  border-radius: 2px;
+  padding: 2px 4px;
+  transition: 0.3s;
+  &:hover {
+    color: rgb(255, 160, 37);
+    background-color: rgba(248, 182, 2, 0.329);
+  }
+}
+.btn-remove {
+  color: red;
+  border: 1px solid red;
+  border-radius: 2px;
+  padding: 2px 4px;
+  transition: 0.3s;
+  &:hover {
+    color: red;
+    background-color: rgba(255, 0, 0, 0.349);
+  }
+}
+.btn-back-form {
+  background-color: white;
+  border: 1px solid grey;
+}
+
+.btn-send {
+  padding: 4px 8px;
+  border-radius: 20px;
 }

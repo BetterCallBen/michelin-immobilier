@@ -1,9 +1,10 @@
 .nav-bar {
+  background-color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   position: sticky;
   top: 0;
-  height: 5vh;
-  background-color: rgb(210, 233, 255);
+  height: 7vh;
+  border-bottom: 1px solid rgb(179, 179, 179);
 }

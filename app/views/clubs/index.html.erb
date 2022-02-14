@@ -1,23 +1,49 @@
-<div class="container">
-  <% if current_user.admin %>
+<div class="nav-bar">
+  <% if user_signed_in? && current_user.admin %>
+    <p>admin</p>
+  <% end %>
+  <% if user_signed_in? %>
+    <%= link_to "me déconnecter", destroy_user_session_path, method: :delete, class: "btn" %>
+  <% else %>
+    <%= link_to "me connecter", new_user_session_path, class: "btn" %>
+  <% end %>
+</div>
 
-    <% @clubs.each do |club| %>
-      <%= link_to club_path(club), class: "btn" do  %>
-        <div>
-          <%= club.name %>
+<div class="container-club">
+  <h3 class="title">Liste des associations</h3>
+  <% if current_user.admin %>
+    <div class="cards-club">
+      <div class="card-club">
+        <div class="club-name">
+          <p>Nom</p>
+        </div>
+        <div class="clients-number">
+          <p>Clients</p>
+        </div>
+        <div class="club-actions">
+          <p>Actions</p>
+        </div>
+      </div>
+      <% @clubs.each do |club| %>
+        <div class="card-club">
+          <div class="club-name">
+            <%= club.name %>
+          </div>
+          <div class="clients-number">
+            <%= club.clients.count %>
+          </div>
+          <div class="club-actions">
+            <%= link_to "Voir", club_path(club), class: "btn-show" %>
+            <%= link_to "Modifier", edit_club_path(club), class:"btn-edit" %>
+            <%= link_to "Supprimer",
+                club_path(club),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class:"btn-remove" %>
+          </div>
         </div>
       <% end %>
-    <% end %>
-
-    <%= link_to "ajouter une association", new_club_path %>
-
-  <% else %>
-
-    <%= link_to club_path(@my_club), class: "btn" do  %>
-      <div>
-        <%= @my_club.name %>
-      </div>
-    <% end %>
-
+    </div>
+    <%= link_to "Ajouter une association", new_club_path, class: "btn-add" %>
   <% end %>
 </div>

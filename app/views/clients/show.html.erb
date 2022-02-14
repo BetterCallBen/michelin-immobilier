@@ -1,15 +1,30 @@
-<%= link_to "back", club_path(@club) %>
-<div>
-  <%= @client.first_name %>
-  <%= @client.last_name %>
-  <%= @client.phone_number %>
-  <%= @client.email %>
-  <%= @client.address %>
-  <%= @client.free_text %>
+<div class="nav-bar">
+  <% if user_signed_in? && current_user.admin %>
+    <p>admin</p>
+  <% end %>
+  <% if user_signed_in? %>
+    <%= link_to "me déconnecter", destroy_user_session_path, method: :delete, class: "btn" %>
+  <% else %>
+    <%= link_to "me connecter", new_user_session_path, class: "btn" %>
+  <% end %>
 </div>
+<%= link_to "Retour", club_path(@club), class: "btn"  %>
 
-<%= link_to "Supprimer le client",
-            club_client_path(@client),
-            method: :delete,
-            data: { confirm: "Are you sure?" },
-            class:"btn btn-remove" %>
+<div class="fiche-client">
+  <div class="infos-client">
+    <p>Prénom: <%= @client.first_name.capitalize %></p>
+    <p>Nom: <%= @client.last_name.capitalize %></p>
+    <p>Numéro: <%= @client.phone_number %></p>
+    <p>E-mail: <%= @client.email %></p>
+    <p>Adresse: <%= @client.address %></p>
+    <p>A propos: <%= @client.free_text %></p>
+  </div>
+  <div class="actions-client">
+    <%= link_to "Modifier le client", edit_club_client_path(@client), class:"btn btn-edit" %>
+    <%= link_to "Supprimer le client",
+                club_client_path(@client),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class:"btn btn-remove" %>
+  </div>
+</div>

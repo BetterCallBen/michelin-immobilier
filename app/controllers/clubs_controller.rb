@@ -1,14 +1,27 @@
 class ClubsController < ApplicationController
-  before_action :set_club, only: %i[show destroy]
+  before_action :set_club, only: %i[show destroy update edit]
   before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: %i[show]
 
   def index
-    @clubs = Club.all
+    @clubs = []
+    Club.all.each do |club|
+      @clubs << club
+    end
+    @clubs.shift
     @my_club = current_user.club
   end
 
   def show
     @proprios = @club.users
+  end
+
+  def edit
+  end
+
+  def update
+    @club.update(club_params)
+    redirect_to club_path(@club)
   end
 
   def new

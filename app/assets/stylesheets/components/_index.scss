@@ -3,10 +3,18 @@
 @import "avatar";
 @import "navbar";
 @import "cards";
-@import "container";
 @import "form";
 @import "btns";
 
+body {
+  background-color: rgb(241, 241, 241);
+}
 p {
   margin: 0;
+}
+.pd-l {
+  padding-left: 4px;
+}
+abbr {
+  display: none;
 }

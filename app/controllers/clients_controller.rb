@@ -1,4 +1,7 @@
 class ClientsController < ApplicationController
+  before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: %i[new create]
+
   def show
     @club = Club.find(params[:id])
     @client = Client.find(params[:club_id])
@@ -14,10 +17,22 @@ class ClientsController < ApplicationController
     @client = Client.new(client_params)
     @client.club = @club
     if @client.save
-      redirect_to root_path
+      redirect_to club_path(@club)
     else
       render :new
     end
+  end
+
+  def edit
+    @club = Club.find(params[:id])
+    @client = Client.find(params[:club_id])
+  end
+
+  def update
+    @club = Club.find(params[:club_id])
+    @client = Client.find(params[:id])
+    @client.update(client_params)
+    redirect_to club_path(@club)
   end
 
   def destroy

@@ -1,39 +1,65 @@
-<%= link_to "back", clubs_path %>
-
-<h1><%= @club.name %></h1>
-
-<% if @proprios %>
-  <% @proprios.each do |proprio| %>
-    <p>
-      <%= proprio.first_name %>
-      <%= proprio.last_name %>
-    </p>
+<div class="nav-bar">
+  <% if user_signed_in? && current_user.admin %>
+    <p>admin</p>
   <% end %>
-<% end %>
+  <% if user_signed_in? %>
+    <%= link_to "me déconnecter", destroy_user_session_path, method: :delete, class: "btn" %>
+  <% else %>
+    <%= link_to "me connecter", new_user_session_path, class: "btn" %>
+  <% end %>
+</div>
+<% if user_signed_in? && current_user.admin %>
+  <%= link_to "Retour", clubs_path, class: "btn" %>
+<% end  %>
 
-
-<div class="clients-container">
-
-  <h2>Clients</h2>
-
-  <% @club.clients.each do |client| %>
-    <%= link_to club_client_path(client) do  %>
-      <div class="client-card">
-        <p><%= client.first_name.capitalize %></p>
-        <p><%= client.last_name.capitalize %></p>
+<% if user_signed_in? %>
+  <div class="container-client">
+    <h3 class="title">Liste des clients à <%= @club.name %></h3>
+    <div class="cards-client">
+      <div class="card-client">
+        <div class="client-first-name">
+          <p>Prénom</p>
+        </div>
+        <div class="client-last-name">
+          <p>Nom</p>
+        </div>
+        <div class="client-number">
+          <p>Numéro</p>
+        </div>
+        <div class="client-actions">
+          <p>Actions</p>
+        </div>
       </div>
-    <% end %>
-  <% end %>
-</div>
-
-<div>
-  <h2>New Client</h2>
-
-  <%= link_to "Ajouter un client", new_club_client_path(@club), class:"btn" %>
-</div>
-
-<%= link_to "Supprimer l'association",
-            club_path(@club),
-            method: :delete,
-            data: { confirm: "Are you sure?" },
-            class:"btn btn-remove" %>
+      <% @club.clients.each do |client| %>
+        <div class="card-club">
+          <div class="client-first-name">
+            <%= client.first_name.capitalize %>
+          </div>
+          <div class="client-last-name">
+            <%= client.last_name.capitalize %>
+          </div>
+          <div class="client-number">
+            <%= client.phone_number %>
+          </div>
+          <div class="client-actions">
+            <%= link_to "Voir", club_client_path(client), class: "btn-show" %>
+            <%= link_to "Modifier", edit_club_client_path(client), class:"btn-edit" %>
+            <%= link_to "Supprimer",
+                club_client_path(client),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class:"btn-remove" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to "Supprimer l'association",
+                club_path(@club),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class:"btn-remove" %>
+    <%= link_to "Ajouter un client", new_club_client_path(@club), class: "btn-add pd-l" %>
+  </div>
+<% else %>
+<h1>Merci</h1>
+<% end %>

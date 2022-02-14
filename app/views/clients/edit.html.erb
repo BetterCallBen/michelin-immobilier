@@ -1,0 +1,15 @@
+<div class="form">
+  <%= simple_form_for [ @club, @client ] do |f| %>
+    <%= f.input :first_name, label: 'Prénom' %>
+    <%= f.input :last_name, label: 'Nom' %>
+    <%= f.input :email, label: 'Email' %>
+    <%= f.input :phone_number, label: 'Numéro de téléphone ' %>
+    <%= f.input :address, label: 'Adresse' %>
+    <%= f.input :free_text, label: 'Texte libre (optionnel)' %>
+    <div class="form-actions">
+          <%= link_to "Retour", club_client_path(@client), class:"btn" %>
+          <%= f.submit "Modifier", class:"btn" %>
+        </div>
+
+  <% end %>
+</div>

@@ -1,18 +1,24 @@
-
-
-
 <div class="background-image-asso" style="background-image: url('<%= cl_image_path @club.bg_image.key %>')">
-  <div class="form">
+  <div class="form client-form">
     <%= simple_form_for [ @club, @client ] do |f| %>
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
-      <%= f.input :email %>
-      <%= f.input :phone_number %>
-      <%= f.input :address %>
-      <%= f.input :free_text %>
-      <%= link_to "back", club_path(@club) %>
+      <%= f.input :first_name, placeholder: 'Prénom', label:false %>
+      <%= f.input :last_name, placeholder: 'Nom', label:false %>
+      <%= f.input :email, placeholder: 'Email', label:false %>
+      <%= f.input :phone_number, placeholder: 'Numéro de téléphone', label:false %>
+      <%= f.input :address, placeholder: 'Adresse', label:false %>
+      <%= f.input :free_text, placeholder: 'Texte libre (optionnel)', label:false %>
 
-      <%= f.submit "Confirmer", class:"btn"%>
+      <% if user_signed_in?  %>
+        <div class="form-actions">
+          <%= link_to "Annuler", club_path(@club), class: "btn btn-back-form" %>
+          <%= f.submit "Envoyer"%>
+        </div>
+      <% else %>
+        <div class="form-action">
+          <%= f.submit "Envoyer", class: "btn-send"%>
+        </div>
+      <% end %>
+
     <% end %>
   </div>
 </div>

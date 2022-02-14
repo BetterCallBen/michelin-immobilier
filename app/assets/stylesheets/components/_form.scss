@@ -1,4 +1,19 @@
 .form {
-  width: 50vw;
+  width: 35vw;
   margin: auto;
+}
+.client-form {
+  padding-top: 30vh;
+}
+.classic-form {
+  padding-top: 2vh;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+.form-action {
+  display: flex;
+  justify-content: center;
 }
