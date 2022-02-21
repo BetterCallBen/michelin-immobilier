@@ -12,6 +12,7 @@
   <%= simple_form_for @club do |f| %>
     <%= f.input :name, label: "Nom de l'associassion" %>
     <%= f.input :bg_image, as: :file, label: "Image de fond" %>
+    <%= f.input :bg_image_phone, as: :file, label: "Image de fond pour portable" %>
     <div class="form-actions">
       <%= link_to "Annuler", clubs_path, class:"btn" %>
       <%= f.submit "Ajouter l'association", class:"btn" %>

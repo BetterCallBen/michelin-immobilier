@@ -1,0 +1,22 @@
+@media (min-width: 750px) {
+  i {
+    font-size: xx-large;
+    margin-right: 10px;
+  }
+}
+@media (max-width: 750px) {
+  i {
+    font-size: large;
+    margin-right: 10px;
+  }
+}
+
+.fa-phone {
+  color: red;
+}
+.fa-envelope {
+  color: white;
+}
+.fa-facebook-square {
+  color: #3A5997;
+}

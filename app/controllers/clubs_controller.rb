@@ -45,7 +45,7 @@ class ClubsController < ApplicationController
   private
 
   def club_params
-    params.require(:club).permit(:name, :bg_image)
+    params.require(:club).permit(:name, :bg_image, :bg_image_phone)
   end
 
   def set_club

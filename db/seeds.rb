@@ -2,7 +2,7 @@ Club.destroy_all
 puts "database cleaned"
 
 club1 = Club.create!(
-  name: "Club1",
+  name: "Club1"
 )
 
 User.create!(

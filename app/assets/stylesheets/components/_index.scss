@@ -5,9 +5,14 @@
 @import "cards";
 @import "form";
 @import "btns";
+@import "background";
+@import "container";
+@import "footer";
+@import "icons";
 
 body {
   background-color: rgb(241, 241, 241);
+  height: 100vh;
 }
 p {
   margin: 0;
@@ -17,4 +22,13 @@ p {
 }
 abbr {
   display: none;
+}
+h4 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 15px 0 40px;
+}
+h5, h6 {
+  margin: 0;
 }

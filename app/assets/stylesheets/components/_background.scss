@@ -1,0 +1,34 @@
+.background-image-asso {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+}
+.background-image-asso-phone {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+}
+@media (max-width: 750px) {
+  .background-image-asso {
+    display: none !important;
+  }
+}
+@media (min-width: 750px) {
+  .background-image-asso-phone {
+    display: none !important;
+  }
+}
+.thanks-bg {
+  width: 100vw;
+  height: 100vh;
+}
+@media (max-width: 500px) {
+  .thanks {
+    display: none;
+  }
+}
+@media (min-width: 500px) {
+  .thanks-on-phone {
+    display: none;
+  }
+}

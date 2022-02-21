@@ -1,13 +1,13 @@
-<div class="nav-bar">
-  <% if user_signed_in? && current_user.admin %>
-    <p>admin</p>
-  <% end %>
-  <% if user_signed_in? %>
+
+<% if user_signed_in? %>
+  <div class="nav-bar">
+    <% if current_user.admin %>
+      <p>admin</p>
+    <% end %>
     <%= link_to "me déconnecter", destroy_user_session_path, method: :delete, class: "btn" %>
-  <% else %>
-    <%= link_to "me connecter", new_user_session_path, class: "btn" %>
-  <% end %>
-</div>
+  </div>
+<% end %>
+
 <% if user_signed_in? && current_user.admin %>
   <%= link_to "Retour", clubs_path, class: "btn" %>
 <% end  %>
@@ -43,12 +43,9 @@
           </div>
           <div class="client-actions">
             <%= link_to "Voir", club_client_path(client), class: "btn-show" %>
-            <%= link_to "Modifier", edit_club_client_path(client), class:"btn-edit" %>
-            <%= link_to "Supprimer",
-                club_client_path(client),
-                method: :delete,
-                data: { confirm: "Are you sure?" },
-                class:"btn-remove" %>
+            <% if current_user.admin? %>
+              <%= link_to "Modifier", edit_club_client_path(client), class:"btn-edit" %>
+            <% end  %>
           </div>
         </div>
       <% end %>
@@ -61,5 +58,60 @@
     <%= link_to "Ajouter un client", new_club_client_path(@club), class: "btn-add pd-l" %>
   </div>
 <% else %>
-<h1>Merci</h1>
+  <div class="main-container laptop">
+    <%= image_tag("merci.png", alt: "mercit", class: "logo-merci") %>
+    <%= image_tag("tickgreen.png", alt: "tick vert", class: "tick-merci") %>
+    <p class="text-merci">
+      Merci d'avoir rempli ce formulaire, vous pouvez dès à présent fermer cette page.
+    </p>
+    <p class="text-merci">
+      Un collaborateur prendra attache avec vous rapidement.
+    </p>
+    <p class="text-merci">
+      L'équipe Michelin Immobilier vous remercie de votre confiance... <br> À très vite !
+    </p>
+    <%= image_tag("avotreservice.png", alt: "logo michelin immo", class: "logo-michelin") %>
+  </div>
+  <div class="footer laptop">
+    <div class="contact-infos">
+      <h5 class="contact-text laptop"><i class="fa-solid fa-phone"></i>04.72.52.28.28</h5>
+      <h5 class="contact-text laptop"><i class="fa-solid fa-envelope"></i>contact@michelin-immobilier.fr</h5>
+      <h5 class="contact-text laptop"><i class="fa-brands fa-facebook-square"></i>MICHELIN IMMOBILIER</h5>
+    </div>
+    <h6 class="address-text laptop">67 avenue lanessan - 69410 CHAMPAGNE AU MONT D'OR</h6>
+  </div>
+
+
+  <div class="main-container-phone phone">
+    <%= image_tag("merci.png", alt: "Image de remerciement", class: "logo-merci-phone phone") %>
+    <%= image_tag("tickgreen.png", alt: "Image de remerciement", class: "tick-merci-phone phone") %>
+    <p class="text-phone phone">
+      Merci d'avoir rempli ce formulaire, vous pouvez dès à présent fermer cette page.
+    </p>
+    <p class="text-phone phone">
+      Un collaborateur prendra attache avec vous rapidement.
+    </p>
+    <p class="text-phone phone">
+      L'équipe Michelin Immobilier vous remercie de votre confiance...
+    </p>
+    <h4 class="phone">À très vite !</h4>
+  </div>
+  <div class="footer-phone phone">
+    <div class="content-footer">
+      <%= image_tag("avotreservice.png", alt: "logo michelin", class: "logo-michelin-phone phone") %>
+      <div class="contact-infos-phone">
+        <div class="d-flex">
+          <i class="fa-solid fa-phone"></i><h5 class="contact-text-phone phone">04.72.52.28.28</h5>
+        </div>
+        <div class="d-flex">
+          <i class="fa-solid fa-envelope"></i><h5 class="contact-text-phone phone">contact@michelin-immobilier.fr</h5>
+        </div>
+        <div class="d-flex">
+          <i class="fa-brands fa-facebook-square"></i><h5 class="contact-text-phone phone">MICHELIN IMMOBILIER</h5>
+        </div>
+        <h6 class="address-text-phone phone">67 avenue lanessan - 69410 CHAMPAGNE AU MONT D'OR</h6>
+      </div>
+    </div>
+  </div>
+
 <% end %>
