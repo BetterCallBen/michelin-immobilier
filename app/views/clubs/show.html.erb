@@ -50,16 +50,12 @@
         </div>
       <% end %>
     </div>
-    <%= link_to "Supprimer l'association",
-                club_path(@club),
-                method: :delete,
-                data: { confirm: "Are you sure?" },
-                class:"btn-remove" %>
+    <%= link_to "Modifier l'association", edit_club_path(@club), class:"btn-edit" %>
     <%= link_to "Ajouter un client", new_club_client_path(@club), class: "btn-add pd-l" %>
   </div>
 <% else %>
   <div class="main-container laptop">
-    <%= image_tag("merci.png", alt: "mercit", class: "logo-merci") %>
+    <%= image_tag("merci.png", alt: "merci", class: "logo-merci") %>
     <%= image_tag("tickgreen.png", alt: "tick vert", class: "tick-merci") %>
     <p class="text-merci">
       Merci d'avoir rempli ce formulaire, vous pouvez dès à présent fermer cette page.

@@ -35,11 +35,6 @@
           <div class="club-actions">
             <%= link_to "Voir", club_path(club), class: "btn-show" %>
             <%= link_to "Modifier", edit_club_path(club), class:"btn-edit" %>
-            <%= link_to "Supprimer",
-                club_path(club),
-                method: :delete,
-                data: { confirm: "Are you sure?" },
-                class:"btn-remove" %>
           </div>
         </div>
       <% end %>
