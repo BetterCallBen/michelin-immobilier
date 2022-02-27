@@ -1,4 +1,15 @@
-<div class="background-image-asso-phone" style="background-image: url('<%= cl_image_path @club.bg_image_phone.key %>')">
+<% if @club.bg_image.attached? %>
+  <div class="background-image-asso" style="background-image: url('<%= cl_image_path @club.bg_image.key %>')">
+    <h1 class="asso-name">
+      <%= @club.name %>
+    </h1>
+    <%= render "form" %>
+  </div>
+<% else %>
+  <h1 class="asso-name">
+    <%= @club.name %>
+      <p>ou"rgbvlkejf</p>
+  </h1>
   <div class="form client-form">
     <%= simple_form_for [ @club, @client ] do |f| %>
       <%= f.input :first_name, placeholder: 'Prénom', label:false %>
@@ -12,19 +23,10 @@
       </div>
     <% end %>
   </div>
-</div>
-<div class="background-image-asso" style="background-image: url('<%= cl_image_path @club.bg_image.key %>')">
-  <div class="form client-form">
-    <%= simple_form_for [ @club, @client ] do |f| %>
-      <%= f.input :first_name, placeholder: 'Prénom', label:false %>
-      <%= f.input :last_name, placeholder: 'Nom', label:false %>
-      <%= f.input :email, placeholder: 'Email (optionnel)', label:false %>
-      <%= f.input :phone_number, placeholder: 'Téléphone', label:false %>
-      <%= f.input :address, placeholder: 'Adresse (optionnel)', label:false %>
-      <%= f.input :free_text, placeholder: 'Texte libre (optionnel)', label:false %>
-      <div class="form-action">
-        <%= f.submit "Envoyer", class: "btn-send"%>
-      </div>
-    <% end %>
+<% end %>
+
+<% if @club.bg_image_phone.attached? %>
+  <div class="background-image-asso-phone" style="background-image: url('<%= cl_image_path @club.bg_image_phone.key %>')">
+    <%= render "form" %>
   </div>
-</div>
+<% end %>

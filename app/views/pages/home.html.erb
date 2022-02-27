@@ -1,16 +1,7 @@
-<div class="nav-bar">
-  <% if user_signed_in? && current_user.admin %>
-    <p>admin</p>
-  <% end %>
-  <% if user_signed_in? %>
-    <%= link_to "me déconnecter", destroy_user_session_path, method: :delete, class: "btn" %>
-  <% else %>
-    <%= link_to "me connecter", new_user_session_path, class: "btn" %>
-  <% end %>
-</div>
+<%= render "shared/navbar" %>
 
 <% if user_signed_in? && current_user.admin %>
   <%= link_to "Voir tous les associations", clubs_path, class: "no-deco" %>
 <% elsif user_signed_in? %>
-  <%= link_to "Voir on club", club_path(@club) %>
+  <%= link_to "Voir mon association", club_path(@club) %>
 <% end %>

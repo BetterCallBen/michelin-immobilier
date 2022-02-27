@@ -1,13 +1,4 @@
-<div class="nav-bar">
-  <% if user_signed_in? && current_user.admin %>
-    <p>admin</p>
-  <% end %>
-  <% if user_signed_in? %>
-    <%= link_to "me déconnecter", destroy_user_session_path, method: :delete, class: "btn" %>
-  <% else %>
-    <%= link_to "me connecter", new_user_session_path, class: "btn" %>
-  <% end %>
-</div>
+<%= render "shared/navbar" %>
 
 <div class="container-club">
   <h3 class="title">Liste des associations</h3>
