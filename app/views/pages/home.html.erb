@@ -1,7 +1,9 @@
 <%= render "shared/navbar" %>
 
-<% if user_signed_in? && current_user.admin %>
-  <%= link_to "Voir tous les associations", clubs_path, class: "no-deco" %>
-<% elsif user_signed_in? %>
-  <%= link_to "Voir mon association", club_path(@club) %>
-<% end %>
+<div class="background-home">
+  <% if user_signed_in? && current_user.admin %>
+    <%= link_to "Voir tous les associations", clubs_path, class: "btn-link-asso"%>
+  <% elsif user_signed_in? %>
+    <%= link_to "Voir mon association", club_path(@club), class: "btn-link-asso"%>
+  <% end %>
+</div>

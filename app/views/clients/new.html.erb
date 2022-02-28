@@ -3,12 +3,23 @@
     <h1 class="asso-name">
       <%= @club.name %>
     </h1>
-    <%= render "form" %>
+    <div class="form-page">
+      <% if @club.left_logo.attached? %>
+        <img src="<%= cl_image_path @club.left_logo.key %>" alt="left logo", class="form-logo">
+      <% end %>
+      <%= render "form" %>
+      <% if @club.right_logo.attached? %>
+        <img src="<%= cl_image_path @club.right_logo.key %>" alt="right logo", class="form-logo">
+      <% end %>
+    </div>
   </div>
 <% else %>
   <h1 class="asso-name">
     <%= @club.name %>
   </h1>
+  <% if @club.left_logo.attached? %>
+    <img src="<%= cl_image_path @club.left_logo.key %>" alt="left logo", class="form-logo">
+  <% end %>
   <div class="form client-form">
     <%= simple_form_for [ @club, @client ] do |f| %>
       <%= f.input :first_name, placeholder: 'Prénom', label:false %>
@@ -22,10 +33,21 @@
       </div>
     <% end %>
   </div>
+  <% if @club.right_logo.attached? %>
+    <img src="<%= cl_image_path @club.right_logo.key %>" alt="right logo", class="form-logo">
+  <% end %>
 <% end %>
 
 <% if @club.bg_image_phone.attached? %>
   <div class="background-image-asso-phone" style="background-image: url('<%= cl_image_path @club.bg_image_phone.key %>')">
+    <h1 class="asso-name">
+      <%= @club.name %>
+    </h1>
     <%= render "form" %>
   </div>
+<% else %>
+  <h1 class="asso-name">
+    <%= @club.name %>
+  </h1>
+  <%= render "form" %>
 <% end %>

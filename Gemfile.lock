@@ -277,7 +277,6 @@ DEPENDENCIES
   rails (~> 6.0.4, >= 6.0.4.1)
   redis (~> 4.0)
   sass-rails (>= 6)
-  sassc-rails
   selenium-webdriver
   simple_form
   spring

@@ -53,3 +53,15 @@ a {
   padding: 4px 8px;
   border-radius: 20px;
 }
+
+.btn-link-asso {
+  color: rgb(15, 15, 15);
+  border-radius: 25px;
+  padding: 8px 16px;
+  border: 1px solid rgb(15, 15, 15);
+  transition: 0.3s;
+  &:hover {
+    color: black;
+    transform: scale(1.02);
+  }
+}
