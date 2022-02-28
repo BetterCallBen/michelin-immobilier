@@ -12,6 +12,13 @@
 .form {
   margin: auto;
 }
+.client-form {
+  padding-top: 20vh;
+}
+.classic-form {
+  padding-top: 2vh;
+}
+
 @media (min-width: 750px) {
   .form-logo {
     margin-top: 29vh;
@@ -37,13 +44,11 @@
   .client-form {
     margin: 0;
   }
+  .no-photo {
+    margin: auto;
+  }
 }
-.client-form {
-  padding-top: 20vh;
-}
-.classic-form {
-  padding-top: 2vh;
-}
+
 
 .form-actions {
   display: flex;
