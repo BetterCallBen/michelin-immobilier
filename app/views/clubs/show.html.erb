@@ -1,10 +1,11 @@
-<%= render "shared/navbar" %>
 
-<% if user_signed_in? && current_user.admin %>
-  <%= link_to "Retour", clubs_path, class: "btn" %>
-<% end  %>
+
 
 <% if user_signed_in? %>
+  <%= render "shared/navbar" %>
+  <% if user_signed_in? && current_user.admin %>
+    <%= link_to "Retour", clubs_path, class: "btn" %>
+  <% end  %>
   <div class="container-client">
     <h3 class="title">Liste des clients à <%= @club.name %></h3>
     <div class="cards-client">
