@@ -62,20 +62,22 @@
     <%= render "form" %>
   </div>
 <% else %>
-  <h1 class="asso-name">
-    <%= @club.name %>
-  </h1>
-  <div class="form client-form no-photo">
-        <%= simple_form_for [ @club, @client ] do |f| %>
-          <%= f.input :first_name, placeholder: 'Prénom', label:false %>
-          <%= f.input :last_name, placeholder: 'Nom', label:false %>
-          <%= f.input :email, placeholder: 'Email (optionnel)', label:false %>
-          <%= f.input :phone_number, placeholder: 'Téléphone', label:false %>
-          <%= f.input :address, placeholder: 'Adresse (optionnel)', label:false %>
-          <%= f.input :free_text, placeholder: 'Texte libre (optionnel)', label:false %>
-          <div class="form-action">
-            <%= f.submit "Envoyer", class: "btn-send"%>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+  <div class="background-image-asso-phone">
+    <h1 class="asso-name">
+      <%= @club.name %>
+    </h1>
+    <div class="form client-form no-photo">
+      <%= simple_form_for [ @club, @client ] do |f| %>
+        <%= f.input :first_name, placeholder: 'Prénom', label:false %>
+        <%= f.input :last_name, placeholder: 'Nom', label:false %>
+        <%= f.input :email, placeholder: 'Email (optionnel)', label:false %>
+        <%= f.input :phone_number, placeholder: 'Téléphone', label:false %>
+        <%= f.input :address, placeholder: 'Adresse (optionnel)', label:false %>
+        <%= f.input :free_text, placeholder: 'Texte libre (optionnel)', label:false %>
+        <div class="form-action">
+          <%= f.submit "Envoyer", class: "btn-send"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
