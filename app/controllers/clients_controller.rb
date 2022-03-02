@@ -17,6 +17,7 @@ class ClientsController < ApplicationController
     @client = Client.new(client_params)
     @client.club = @club
     if @client.save
+      ClientMailer.with(client: @client, club: @club).new_client.deliver_later
       redirect_to club_path(@club)
     else
       render :new
