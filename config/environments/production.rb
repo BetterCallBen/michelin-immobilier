@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "https://michelin-immobilier.herokuapp.com/" }
+  config.action_mailer.default_url_options = { host: "michelin-immobilier.herokuapp.com", protocol: "https" }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
