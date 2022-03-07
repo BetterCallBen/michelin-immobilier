@@ -3,7 +3,7 @@ class ClientMailer < ApplicationMailer
     @client = params[:client]
     @club = params[:club]
     mail(
-      to: "bcbenjb@gmail.com",
+      to: "contact@michelin-immobilier.fr",
       subject: 'Nouveau client'
     )
   end
