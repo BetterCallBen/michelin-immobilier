@@ -43,8 +43,10 @@
         </div>
       <% end %>
     </div>
-    <%= link_to "Modifier l'association", edit_club_path(@club), class:"btn-edit" %>
-    <%= link_to "Ajouter un client", new_club_client_path(@club), class: "btn-add pd-l" %>
+    <% if user_signed_in? && current_user.admin %>
+      <%= link_to "Modifier l'association", edit_club_path(@club), class:"btn-edit" %>
+      <%= link_to "Ajouter un client", new_club_client_path(@club), class: "btn-add pd-l" %>
+    <% end  %>
   </div>
 <% else %>
   <div class="main-container laptop">
