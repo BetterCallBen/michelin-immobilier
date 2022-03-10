@@ -17,6 +17,9 @@ class ClientsController < ApplicationController
     @client = Client.new(client_params)
     @client.club = @club
     if @client.save
+      @club.users.each do |user|
+        ClientMailer.with(client: @client, club: @club, email: user.email).new_client_asso.deliver_later
+      end
       ClientMailer.with(client: @client, club: @club).new_client.deliver_later
       redirect_to club_path(@club)
     else

@@ -7,4 +7,14 @@ class ClientMailer < ApplicationMailer
       subject: 'Nouveau client'
     )
   end
+
+  def new_client_asso
+    @client = params[:client]
+    @club = params[:club]
+    @email = params[:email]
+    mail(
+      to: @email,
+      subject: 'Nouveau client'
+    )
+  end
 end

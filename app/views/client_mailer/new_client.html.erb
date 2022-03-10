@@ -8,7 +8,10 @@
       Un nouveau client s'est inscrit à <%= @club.name %>
     </h1>
     <p>
-      Contact <%= @client.first_name %> <%= @client.last_name  %> au <%= @client.phone_number %>
+      Contact <%= @client.first_name.capitalize %> <%= @client.last_name.upcase  %> au <%= @client.phone_number %>
     </p>
+    <% if @client.free_text %>
+      <p> <%= @client.free_text %></p>
+    <% end %>
   </body>
 </html>
